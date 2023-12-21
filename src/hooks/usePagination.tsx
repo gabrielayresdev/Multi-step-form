@@ -10,7 +10,7 @@ const usePagination = (numberOfPages: number) => {
     if (page - 1 >= 0) setPage(page - 1);
   }
 
-  function goTo(num) {
+  function goTo(num: number) {
     if (num >= 0 && num < numberOfPages) setPage(num);
   }
 
