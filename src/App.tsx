@@ -1,10 +1,10 @@
 import styles from "./App.module.sass";
-import Test from "./components/test";
+import Form from "./components/Form/Index";
 
 function App() {
   return (
     <div className={styles.app}>
-      <Test />
+      <Form />
     </div>
   );
 }
