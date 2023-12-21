@@ -1,9 +1,10 @@
 import usePagination from "../../hooks/usePagination";
-import PageTest from "../PageTest/Index";
+import FormProgress from "../FormProgress/FormProgress";
+import PageTest from "../PageTest/PageTest";
 import styles from "./Form.module.sass";
 
 export const Form = () => {
-  const { page, goNext, goPrev } = usePagination(4);
+  const { page, goTo } = usePagination(4);
   const content = [
     <PageTest content="page 1" />,
     <PageTest content="page 2" />,
@@ -11,10 +12,9 @@ export const Form = () => {
     <PageTest content="page 4" />,
   ];
   return (
-    <div className={styles.wrapper}>
-      <button onClick={goPrev}>Prev</button>
+    <div className={styles.form}>
+      <FormProgress page={page} goTo={goTo} />
       {content[page]}
-      <button onClick={goNext}>Next</button>
     </div>
   );
 };

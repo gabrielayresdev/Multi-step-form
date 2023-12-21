@@ -1,5 +1,5 @@
 import styles from "./App.module.sass";
-import Form from "./components/Form/Index";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
