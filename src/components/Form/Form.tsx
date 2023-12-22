@@ -1,12 +1,13 @@
 import usePagination from "../../hooks/usePagination";
 import FormProgress from "../FormProgress/FormProgress";
 import PageTest from "../PageTest/PageTest";
+import PersonalForm from "../PersonalForm/PersonalForm";
 import styles from "./Form.module.sass";
 
 export const Form = () => {
   const { page, goTo } = usePagination(4);
   const content = [
-    <PageTest content="page 1" />,
+    <PersonalForm />,
     <PageTest content="page 2" />,
     <PageTest content="page 3" />,
     <PageTest content="page 4" />,
