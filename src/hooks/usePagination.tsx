@@ -1,5 +1,12 @@
 import React from "react";
 
+export interface UsePaginationInterface {
+  page: number;
+  goNext: () => void;
+  goPrev: () => void;
+  goTo: (num: number) => void;
+}
+
 const usePagination = (numberOfPages: number) => {
   const [page, setPage] = React.useState(0);
   function goNext() {

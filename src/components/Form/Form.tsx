@@ -1,11 +1,12 @@
-import usePagination from "../../hooks/usePagination";
+import { useFormContext } from "../../contexts/formContext";
 import FormProgress from "../FormProgress/FormProgress";
 import PageTest from "../PageTest/PageTest";
 import PersonalForm from "../PersonalForm/PersonalForm";
 import styles from "./Form.module.sass";
 
 export const Form = () => {
-  const { page, goTo } = usePagination(4);
+  const { pagination } = useFormContext();
+  const { page, goTo } = pagination;
   const content = [
     <PersonalForm />,
     <PageTest content="page 2" />,

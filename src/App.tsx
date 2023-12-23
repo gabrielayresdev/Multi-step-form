@@ -1,10 +1,13 @@
 import styles from "./App.module.sass";
 import Form from "./components/Form/Form";
+import FormContextProvider from "./contexts/formContext";
 
 function App() {
   return (
     <div className={styles.app}>
-      <Form />
+      <FormContextProvider>
+        <Form />
+      </FormContextProvider>
     </div>
   );
 }

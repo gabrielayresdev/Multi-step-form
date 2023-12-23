@@ -2,11 +2,10 @@ import React from "react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import styles from "./PersonalForm.module.sass";
+import { useFormContext } from "../../contexts/formContext";
 
 export const PersonalForm = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [number, setNumber] = React.useState("");
+  const { name, email, number } = useFormContext();
   return (
     <div className={styles.personal_form}>
       <div className={styles.form_header}>
@@ -17,27 +16,30 @@ export const PersonalForm = () => {
       </div>
       <div className={styles.input_container}>
         <Input
-          value={name}
-          setValue={setName}
+          value={name.value}
+          onChange={name.onChange}
           placeholder="e.g. Stephen King"
           label="Name"
-          error={null}
+          error={name.error}
+          onBlur={() => name.validate()}
         />
         <Input
-          value={email}
-          setValue={setEmail}
+          value={email.value}
+          onChange={email.onChange}
           type="email"
           placeholder="e.g. stephenking@lorem.com"
           label="Email Address"
-          error={null}
+          error={email.error}
+          onBlur={() => email.validate()}
         />
         <Input
-          value={number}
-          setValue={setNumber}
+          value={number.value}
+          onChange={number.onChange}
           type="tel"
           placeholder="e.g. +1 234 567 890"
           label="Phone Number"
-          error={null}
+          error={number.error}
+          onBlur={() => number.validate()}
         />
       </div>
       <Button text="Next Step" />

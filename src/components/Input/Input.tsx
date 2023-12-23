@@ -1,10 +1,9 @@
-import { SetStateAction } from "react";
 import generateRandomId from "../../utils/generateRandomId";
 import styles from "./Input.module.sass";
 
-interface inputInterface {
+interface inputInterface extends React.InputHTMLAttributes<HTMLInputElement> {
   value: string;
-  setValue: React.Dispatch<SetStateAction<string>>;
+  onChange?: ({ target }: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
   placeholder?: string;
   type?: string;
@@ -14,13 +13,15 @@ interface inputInterface {
 
 export const Input = ({
   value,
-  setValue,
+  onChange,
   label,
   placeholder,
   type = "text",
   id = generateRandomId(),
   error,
+  ...args
 }: inputInterface) => {
+  console.log(error);
   return (
     <div className={styles.input_container}>
       <div className={styles.input_header}>
@@ -33,9 +34,10 @@ export const Input = ({
         className={`${styles.input} ${error ? styles.error : ""}`}
         type={type}
         value={value}
-        onChange={({ target }) => setValue(target.value)}
+        onChange={onChange}
         id={id}
         placeholder={placeholder}
+        {...args}
       />
     </div>
   );

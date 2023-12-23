@@ -5,28 +5,39 @@ interface ValidationInterface {
   message: string;
 }
 
+export interface UseFormInterface {
+  value: string;
+  error: string | null;
+  onChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void;
+  validate: () => boolean;
+}
+
 const useForm = (required: boolean, validation?: ValidationInterface[]) => {
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState<string | null>(null);
 
   function validateAtEachChangeIfThereIsAnError() {
-    console.log("oi");
     if (error) validate();
   }
 
   function validate() {
-    if (required) {
-      value.length > 0 ? setError(null) : setError("This field can't be empty");
-      return value.length > 0;
-    }
+    console.log("validando");
     if (validation) {
       validation.forEach(({ pattern, message }) => {
         if (!pattern.test(value)) {
           setError(message);
+          console.log(message);
           return false;
         }
       });
     }
+    if (required) {
+      if (value.length === 0) {
+        setError("This field can't be empty");
+        return false;
+      }
+    }
+    setError(null);
     return true;
   }
 
