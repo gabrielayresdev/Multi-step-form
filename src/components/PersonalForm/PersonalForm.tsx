@@ -5,7 +5,7 @@ import styles from "./PersonalForm.module.sass";
 import { useFormContext } from "../../contexts/formContext";
 
 export const PersonalForm = () => {
-  const { name, email, number } = useFormContext();
+  const { name, email, number, pagination } = useFormContext();
   return (
     <div className={styles.personal_form}>
       <div className={styles.form_header}>
@@ -42,7 +42,7 @@ export const PersonalForm = () => {
           onBlur={() => number.validate()}
         />
       </div>
-      <Button text="Next Step" />
+      <Button text="Next Step" onClick={() => pagination.goNext()} />
     </div>
   );
 };
