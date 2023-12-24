@@ -21,22 +21,34 @@ const useForm = (required: boolean, validation?: ValidationInterface[]) => {
   }
 
   function validate() {
-    console.log("validando");
-    if (validation) {
+    const rnd = Math.random();
+    /* if (validation) {
       validation.forEach(({ pattern, message }) => {
         if (!pattern.test(value)) {
           setError(message);
-          console.log(message);
+          console.log(rnd);
           return false;
         }
       });
+    } */
+    if (validation) {
+      for (let i = 0; i < validation.length; i++) {
+        const { pattern, message } = validation[i];
+        if (!pattern.test(value)) {
+          setError(message);
+          console.log(rnd);
+          return false;
+        }
+      }
     }
     if (required) {
       if (value.length === 0) {
         setError("This field can't be empty");
+        console.log(rnd);
         return false;
       }
     }
+    console.log(rnd);
     setError(null);
     return true;
   }

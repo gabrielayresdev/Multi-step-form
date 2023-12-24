@@ -21,7 +21,6 @@ export const Input = ({
   error,
   ...args
 }: inputInterface) => {
-  console.log(error);
   return (
     <div className={styles.input_container}>
       <div className={styles.input_header}>

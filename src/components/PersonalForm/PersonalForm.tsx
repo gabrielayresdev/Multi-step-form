@@ -36,7 +36,7 @@ export const PersonalForm = () => {
           value={number.value}
           onChange={number.onChange}
           type="tel"
-          placeholder="e.g. +1 234 567 890"
+          placeholder="e.g. +12 34 123456789"
           label="Phone Number"
           error={number.error}
           onBlur={() => number.validate()}

@@ -27,7 +27,8 @@ const FormContextProvider = ({ children }: React.PropsWithChildren) => {
   ]);
   const number = useForm(true, [
     {
-      pattern: /^\([1-9]{2}\) (?:[2-8]|9[0-9])[0-9]{3}-[0-9]{4}/,
+      pattern:
+        /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/,
       message: "This number is not valid",
     },
   ]);
