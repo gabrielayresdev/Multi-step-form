@@ -1,7 +1,8 @@
-import { useFormContext } from "../../contexts/formContext";
+import { useFormContext } from "../../contexts/FormContext";
 import FormProgress from "../FormProgress/FormProgress";
 import PageTest from "../PageTest/PageTest";
 import PersonalForm from "../PersonalForm/PersonalForm";
+import PlanSelection from "../PlanSelection/PlanSelection";
 import styles from "./Form.module.sass";
 
 export const Form = () => {
@@ -9,7 +10,7 @@ export const Form = () => {
   const { page, goTo } = pagination;
   const content = [
     <PersonalForm />,
-    <PageTest content="page 2" />,
+    <PlanSelection />,
     <PageTest content="page 3" />,
     <PageTest content="page 4" />,
   ];
