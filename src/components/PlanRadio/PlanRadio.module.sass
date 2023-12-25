@@ -1,4 +1,30 @@
-.wrapper 
+.radio 
+    /* min-width: 8.625rem */
+    width: 100%
     display: flex
-    justify-content: center
-    align-items: center
+    flex-direction: column
+    padding: 1.25rem 1rem
+
+    border: 1px solid #D6D9E6
+    border-radius: .5rem
+
+    background: #F8F9FF
+    transition: all .2s
+
+    &.checked 
+        border-color: #483EFF
+
+    .icon 
+        margin-bottom: 2.4375rem
+
+    .title 
+        color: #022959
+        text-transform: capitalize
+        margin-bottom: .5rem
+    
+    .price 
+        color: #9699AA
+        font-size: .875rem
+    
+    input
+        display: none
