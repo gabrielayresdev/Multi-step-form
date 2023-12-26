@@ -1,6 +1,56 @@
-.radiobox 
-    padding: 2.5rem 5.25rem 1rem 0
-    width: 100%
+.plan_selection 
     display: flex
-    align-items: center
-    gap: 1.125rem
+    flex-direction: column
+    height: 100%
+    .form_header
+        margin-bottom: 2.1875rem
+        .title 
+            font-size: 2rem
+            font-weight: 700
+            color: #022959
+            margin-bottom: 0.6875rem
+        .subtitle 
+            color: #9699AA
+    .radiobox 
+        width: 100%
+        display: flex
+        align-items: center
+        gap: 1.125rem
+
+        margin-bottom: 2rem
+    
+
+    .billing_frequency 
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 1.5rem
+        padding: .875rem 0
+        background: #F8F9FF
+        border-radius: .5rem
+
+        .billing 
+            font-size: .875rem
+            font-weight: 700
+            text-transform: capitalize
+            color: #9699AA
+
+            transition: all .3s
+
+        &.monthly
+            .billing:first-of-type 
+                color: #022959
+        &.yearly
+            .billing:nth-of-type(2)
+                color: #022959
+
+    .page_controls 
+        display: flex
+        align-items: center
+        margin-top: auto
+
+
+        button 
+            margin-left: auto
+
+                
