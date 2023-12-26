@@ -7,6 +7,18 @@ interface FormContextInterface {
   email: UseFormInterface;
   number: UseFormInterface;
   pagination: UsePaginationInterface;
+  plan: PlanInterface;
+  setPlan: React.Dispatch<React.SetStateAction<PlanInterface>>;
+  plans: PlanInterface[];
+  billingFrequency: "monthly" | "yearly";
+  setBillingFrequency: React.Dispatch<
+    React.SetStateAction<"monthly" | "yearly">
+  >;
+}
+
+export interface PlanInterface {
+  name: string;
+  dollarsPerMonth: number;
 }
 
 const FormContext = React.createContext<FormContextInterface | null>(null);
@@ -33,8 +45,39 @@ const FormContextProvider = ({ children }: React.PropsWithChildren) => {
     },
   ]);
   const pagination = usePagination(4);
+  const plans = [
+    {
+      name: "arcade",
+      dollarsPerMonth: 9,
+    },
+    {
+      name: "advanced",
+      dollarsPerMonth: 12,
+    },
+    {
+      name: "pro",
+      dollarsPerMonth: 15,
+    },
+  ];
+  const [plan, setPlan] = React.useState<PlanInterface>(plans[0]);
+  const [billingFrequency, setBillingFrequency] = React.useState<
+    "monthly" | "yearly"
+  >("monthly");
+
   return (
-    <FormContext.Provider value={{ name, email, number, pagination }}>
+    <FormContext.Provider
+      value={{
+        name,
+        email,
+        number,
+        pagination,
+        plan,
+        setPlan,
+        plans,
+        billingFrequency,
+        setBillingFrequency,
+      }}
+    >
       {children}
     </FormContext.Provider>
   );

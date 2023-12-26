@@ -8,31 +8,12 @@ import Switch from "../Switch/Switch";
 import Button from "../Button/Button";
 import { useFormContext } from "../../contexts/FormContext";
 
-export interface PlanInterface {
-  name: string;
-  dollarsPerMonth: number;
-}
-
 export const PlanSelection = () => {
   const icons = [Arcade, Advanced, Pro];
-  const plans = [
-    {
-      name: "arcade",
-      dollarsPerMonth: 9,
-    },
-    {
-      name: "advanced",
-      dollarsPerMonth: 12,
-    },
-    {
-      name: "pro",
-      dollarsPerMonth: 15,
-    },
-  ];
-  const [plan, setPlan] = React.useState<PlanInterface>(plans[0]);
-  const [billingFrequency, setBillingFrequency] = React.useState<
-    "monthly" | "yearly"
-  >("monthly");
+
+  const { plan, setPlan, plans, billingFrequency, setBillingFrequency } =
+    useFormContext();
+
   const { pagination } = useFormContext();
   return (
     <div className={styles.plan_selection}>
@@ -65,7 +46,7 @@ export const PlanSelection = () => {
           <Switch
             onChange={() =>
               setBillingFrequency((value) =>
-                value === "monthly" ? "monthly" : "yearly"
+                value === "monthly" ? "yearly" : "monthly"
               )
             }
           />
