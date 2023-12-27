@@ -1,18 +1,11 @@
-import Button from "../Button/Button";
 import Input from "../Input/Input";
 import styles from "./PersonalForm.module.sass";
-import { useFormContext } from "../../contexts/formContext";
+import { useFormContext } from "../../contexts/FormContext";
 
 export const PersonalForm = () => {
-  const { name, email, number, pagination } = useFormContext();
+  const { name, email, number } = useFormContext();
   return (
     <div className={styles.personal_form}>
-      <div className={styles.form_header}>
-        <h2 className={styles.title}>Personal info</h2>
-        <p className={styles.subtitle}>
-          Please provide your name, email address, and phone number.
-        </p>
-      </div>
       <div className={styles.input_container}>
         <Input
           value={name.value}
@@ -41,7 +34,6 @@ export const PersonalForm = () => {
           onBlur={() => number.validate()}
         />
       </div>
-      <Button text="Next Step" onClick={() => pagination.goNext()} />
     </div>
   );
 };

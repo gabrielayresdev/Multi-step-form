@@ -14,15 +14,8 @@ export const PlanSelection = () => {
   const { plan, setPlan, plans, billingFrequency, setBillingFrequency } =
     useFormContext();
 
-  const { pagination } = useFormContext();
   return (
     <div className={styles.plan_selection}>
-      <div className={styles.form_header}>
-        <h2 className={styles.title}>Select your plan</h2>
-        <p className={styles.subtitle}>
-          You have the option of monthly or yearly billing.
-        </p>
-      </div>
       <div className={styles.radiobox}>
         {plans.map((item, index) => (
           <PlanRadio
@@ -52,10 +45,6 @@ export const PlanSelection = () => {
           />
         }
         <p className={`${styles.billing} ${styles.yearly}`}>yearly</p>
-      </div>
-
-      <div className={styles.page_controls}>
-        <Button text="Next Step" onClick={() => pagination.goNext()} />
       </div>
     </div>
   );
