@@ -6,10 +6,11 @@
     gap: 1.5rem
     
     padding: 1rem 1.5rem
-    border: 1px solid #483EFF
+    border: 1px solid #D6D9E6
     border-radius: .5rem
-    background: #F8F9FF
     cursor: pointer
+
+    transition: all .3s
 
     .text_content 
         .title 
@@ -25,3 +26,10 @@
         justify-self: flex-end
         color: #483EFF
         font-size: 0.9375rem
+    
+    &.active 
+        border-color: #483EFF
+        background: #F8F9FF
+
+    &:hover
+        border-color: #483EFF

@@ -29,7 +29,7 @@ export const AddOnsCheckbox = ({
 
   return (
     <div
-      className={styles.checkbox}
+      className={`${styles.checkbox} ${checked ? styles.active : ""}`}
       onClick={() => {
         console.log("cliquei");
         setChecked(!checked);
