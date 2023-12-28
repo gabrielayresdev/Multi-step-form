@@ -20,7 +20,11 @@ export const Form = () => {
       subtitle="You have the option of monthly or yearly billing."
       content={<PlanSelection />}
     />,
-    <FormPage title="" subtitle="" content={<AddOnsSelection />} />,
+    <FormPage
+      title="Pick add-ons"
+      subtitle="Add-ons help enhance your gaming experience."
+      content={<AddOnsSelection />}
+    />,
   ];
   return (
     <div className={styles.form}>
