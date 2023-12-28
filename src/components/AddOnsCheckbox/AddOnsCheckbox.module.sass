@@ -1,4 +1,27 @@
-.wrapper 
-    display: flex
-    justify-content: center
+.checkbox 
+    width: 100%
+    display: grid
+    grid-template-columns: auto auto 1fr
     align-items: center
+    gap: 1.5rem
+    
+    padding: 1rem 1.5rem
+    border: 1px solid #483EFF
+    border-radius: .5rem
+    background: #F8F9FF
+    cursor: pointer
+
+    .text_content 
+        .title 
+            font-weight: 500
+            color: #022959
+            margin-bottom: .5rem
+        .subtitle
+            color: #9699AA
+            font-size: 0.9375rem
+            line-height: 1.25rem
+
+    .price 
+        justify-self: flex-end
+        color: #483EFF
+        font-size: 0.9375rem

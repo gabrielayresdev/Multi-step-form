@@ -3,8 +3,12 @@ import styles from "./Checkbox.module.sass";
 import { motion } from "framer-motion";
 import Check from "/src/assets/check.svg?react";
 
-export const Checkbox = () => {
-  const [active, setActive] = React.useState(false);
+interface CheckboxInterface {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Checkbox = ({ active, setActive }: CheckboxInterface) => {
   const checkbox = {
     unchecked: { border: "1px solid #D6D9E6" },
     checked: { border: "1px solid #483EFF" },
@@ -31,7 +35,6 @@ export const Checkbox = () => {
           <Check />
         </motion.div>
       </motion.div>
-      {" " + active}
     </>
   );
 };
