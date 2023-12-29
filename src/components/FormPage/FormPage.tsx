@@ -1,5 +1,6 @@
 import { useFormContext } from "../../contexts/FormContext";
 import Button from "../Button/Button";
+import FormHeader from "../FormHeader/FormHeader";
 import GoPreviousButton from "../GoPreviousButton/GoPreviousButton";
 import styles from "./FormPage.module.sass";
 
@@ -13,10 +14,7 @@ export const FormPage = ({ title, subtitle, content }: FormPageInterface) => {
   const { pagination } = useFormContext();
   return (
     <div className={styles.form}>
-      <div className={styles.form_header}>
-        <h2 className={styles.title}>{title}</h2>
-        <p className={styles.subtitle}>{subtitle}</p>
-      </div>
+      <FormHeader title={title} subtitle={subtitle} />
       <div className={styles.content}>{content}</div>
       <div className={styles.pagination_control}>
         <div>
