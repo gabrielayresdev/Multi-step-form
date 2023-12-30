@@ -1,5 +1,6 @@
 import { useFormContext } from "../../contexts/FormContext";
 import AddOnsSelection from "../AddOnsSelection/AddOnsSelection";
+import ConclusionPage from "../ConclusionPage/ConclusionPage";
 import FormPage from "../FormPage/FormPage";
 import FormProgress from "../FormProgress/FormProgress";
 import PersonalForm from "../PersonalForm/PersonalForm";
@@ -24,6 +25,11 @@ export const Form = () => {
       title="Pick add-ons"
       subtitle="Add-ons help enhance your gaming experience."
       content={<AddOnsSelection />}
+    />,
+    <FormPage
+      title="Finishing up"
+      subtitle="Double-check everything looks OK before confirming."
+      content={<ConclusionPage />}
     />,
   ];
   return (
