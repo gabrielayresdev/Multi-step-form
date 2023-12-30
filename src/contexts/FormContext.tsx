@@ -14,11 +14,18 @@ interface FormContextInterface {
   setBillingFrequency: React.Dispatch<
     React.SetStateAction<"monthly" | "yearly">
   >;
+  addOns: AddOnsInterface[];
+  setAddOns: React.Dispatch<React.SetStateAction<AddOnsInterface[]>>;
 }
 
 export interface PlanInterface {
   name: string;
   dollarsPerMonth: number;
+}
+
+export interface AddOnsInterface {
+  title: string;
+  price: number;
 }
 
 const FormContext = React.createContext<FormContextInterface | null>(null);
@@ -63,6 +70,7 @@ const FormContextProvider = ({ children }: React.PropsWithChildren) => {
   const [billingFrequency, setBillingFrequency] = React.useState<
     "monthly" | "yearly"
   >("monthly");
+  const [addOns, setAddOns] = React.useState<AddOnsInterface[]>([]);
 
   return (
     <FormContext.Provider
@@ -76,6 +84,8 @@ const FormContextProvider = ({ children }: React.PropsWithChildren) => {
         plans,
         billingFrequency,
         setBillingFrequency,
+        addOns,
+        setAddOns,
       }}
     >
       {children}
