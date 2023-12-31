@@ -1,12 +1,13 @@
 import React from "react";
 import Checkbox from "../Checkbox/Checkbox";
 import styles from "./AddOnsCheckbox.module.sass";
-import { AddOnsInterface } from "../AddOnsSelection/AddOnsSelection";
+import { AddOnsInterface } from "../../contexts/FormContext";
 
 interface AddOnsCheckboxInterface {
   title: string;
   subtitle: string;
   price: number;
+  value: AddOnsInterface[];
   setValue: React.Dispatch<React.SetStateAction<AddOnsInterface[]>>;
 }
 
@@ -14,16 +15,35 @@ export const AddOnsCheckbox = ({
   title,
   subtitle,
   price,
+  value,
   setValue,
 }: AddOnsCheckboxInterface) => {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = React.useState(() => {
+    return (
+      value.filter((addon) => addon.title === title && addon.price === price)
+        .length > 0
+    );
+  });
+
+  const previousValueRef = React.useRef<AddOnsInterface[]>(value);
 
   React.useEffect(() => {
+    const previousValue = previousValueRef.current;
+
     setValue((current) => {
-      const addOns = checked
-        ? [...current, { title, price }]
-        : current.filter((addon) => addon.title !== title);
-      return addOns;
+      if (checked) {
+        const alreadyExists =
+          previousValue.filter(
+            (addon) => addon.price === price && addon.title === title
+          ).length > 0;
+        if (!alreadyExists) {
+          return [...current, { title, price }];
+        } else {
+          return current;
+        }
+      } else {
+        return current.filter((addon) => addon.title !== title);
+      }
     });
   }, [checked, title, price, setValue]);
 
@@ -31,7 +51,6 @@ export const AddOnsCheckbox = ({
     <div
       className={`${styles.checkbox} ${checked ? styles.active : ""}`}
       onClick={() => {
-        console.log("cliquei");
         setChecked(!checked);
       }}
     >

@@ -21,6 +21,7 @@ export const ConclusionPage = () => {
     0
   );
   const total = planPrice + addonsSum;
+
   return (
     <div className={styles.conclusion}>
       <div className={styles.itens}>
@@ -44,8 +45,8 @@ export const ConclusionPage = () => {
           <>
             <div className={styles.detail}></div>
             <div className={styles.addons}>
-              {addonsPrice.map((addon) => (
-                <div className={styles.addon}>
+              {addonsPrice.map((addon, index) => (
+                <div className={styles.addon} key={index}>
                   <p className={styles.title}>{addon.title}</p>
                   <p className={styles.price}>
                     +${addon.price}/{shortening}
