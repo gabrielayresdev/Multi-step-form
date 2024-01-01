@@ -1,11 +1,9 @@
-import React from "react";
 import PlanRadio from "../PlanRadio/PlanRadio";
 import styles from "./PlanSelection.module.sass";
 import Arcade from "/src/assets/icon-arcade.svg?react";
 import Advanced from "/src/assets/icon-advanced.svg?react";
 import Pro from "/src/assets/icon-pro.svg?react";
 import Switch from "../Switch/Switch";
-import Button from "../Button/Button";
 import { useFormContext } from "../../contexts/FormContext";
 
 export const PlanSelection = () => {
@@ -42,6 +40,7 @@ export const PlanSelection = () => {
                 value === "monthly" ? "yearly" : "monthly"
               )
             }
+            checked={billingFrequency === "yearly"}
           />
         }
         <p className={`${styles.billing} ${styles.yearly}`}>yearly</p>
