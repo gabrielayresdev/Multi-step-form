@@ -11,7 +11,17 @@ interface FormPageInterface {
 }
 
 export const FormPage = ({ title, subtitle, content }: FormPageInterface) => {
-  const { pagination } = useFormContext();
+  const { name, email, number, pagination } = useFormContext();
+
+  function validateBeforeProceed() {
+    const fields = [name, email, number];
+    const valid = fields.reduce(
+      (bool, current) => current.validate() && bool,
+      true
+    );
+    if (valid) pagination.goNext();
+  }
+
   return (
     <div className={styles.form}>
       <FormHeader title={title} subtitle={subtitle} />
@@ -25,7 +35,7 @@ export const FormPage = ({ title, subtitle, content }: FormPageInterface) => {
             />
           ) : null}
         </div>
-        <Button text="Next Step" onClick={() => pagination.goNext()} />
+        <Button text="Next Step" onClick={validateBeforeProceed} />
       </div>
     </div>
   );
