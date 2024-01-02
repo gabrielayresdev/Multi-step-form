@@ -1,6 +1,7 @@
 import { SetStateAction } from "react";
 import styles from "./PlanRadio.module.sass";
-import { PlanInterface } from "../PlanSelection/PlanSelection";
+import { PlanInterface } from "../../contexts/FormContext";
+import { useFormContext } from "../../contexts/FormContext";
 
 interface PlanRadioInterface
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -21,6 +22,7 @@ export const PlanRadio = ({
   checked,
   ...args
 }: PlanRadioInterface) => {
+  const { billingFrequency } = useFormContext();
   return (
     <div
       className={`${styles.radio} ${checked ? styles.checked : ""}`}
@@ -30,7 +32,13 @@ export const PlanRadio = ({
         <Icon />
       </div>
       <h3 className={styles.title}>{plan.name}</h3>
-      <p className={styles.price}>${plan.dollarsPerMonth}/mo</p>
+      <p className={styles.price}>
+        $
+        {billingFrequency === "monthly"
+          ? plan.dollarsPerMonth
+          : plan.dollarsPerMonth * 12}
+        /{billingFrequency === "monthly" ? "mo" : "yr"}
+      </p>
       <input
         type="radio"
         name={name}
