@@ -1,6 +1,6 @@
 import styles from "./App.module.sass";
 import Form from "./components/Form/Form";
-import FormContextProvider from "./contexts/formContext";
+import FormContextProvider from "./contexts/FormContext";
 
 function App() {
   return (
