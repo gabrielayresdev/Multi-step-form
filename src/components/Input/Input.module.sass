@@ -4,16 +4,15 @@
         align-items: center
         justify-content: space-between
         margin-bottom: .5rem
+        font-size: .875rem
 
         .label 
             display: flex
             align-items: center
-            font-size: .875rem
             color: #022959
             text-transform: capitalize
         .error 
             color: #EE374A
-            font-size: .875rem
             font-weight: 700
         
     .input 
@@ -37,3 +36,7 @@
         
         &.error 
             border-color: #EE374A
+
+    @media screen and ( min-width: 1440px )
+        .input_header 
+            font-size: 1rem
