@@ -28,3 +28,18 @@
     
     input
         display: none
+
+    @media screen and ( max-width: 1024px )
+        display: grid
+        grid-template-columns: auto 1fr
+        grid-template-rows: auto auto
+        column-gap: .875rem
+        row-gap: .5rem
+
+        .icon 
+            grid-row: span 2
+            align-self: center
+            margin-bottom: 0
+
+        .title 
+            margin-bottom: 0
