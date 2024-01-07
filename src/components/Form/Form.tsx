@@ -34,10 +34,15 @@ export const Form = () => {
   ];
   return (
     <div className={styles.form}>
-      <div className={styles.progress_bar}>
+      <div className={styles.mobile_progress_bar}>
         <FormProgress page={page} goTo={goTo} />
       </div>
-      <div className={styles.content}>{content[page]}</div>
+      <div className={styles.container}>
+        <div className={styles.desktop_progress_bar}>
+          <FormProgress page={page} goTo={goTo} />
+        </div>
+        <div className={styles.content}>{content[page]}</div>
+      </div>
     </div>
   );
 };

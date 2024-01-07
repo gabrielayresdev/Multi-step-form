@@ -1,32 +1,46 @@
 .form 
-    display: grid
-    grid-template-columns: 3fr 6fr
-    gap: 6.25rem
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
 
-    width: 65%
-    aspect-ratio: 3/2
-    background: #FFFFFF
-    padding: 1rem
-    border-radius: 0.93rem
+    .mobile_progress_bar 
+        display: none
 
-    .content 
-        padding: 2.5rem 5.25rem 1rem 0
+    .container 
+        display: grid
+        grid-template-columns: 3fr 6fr
+        gap: 6.25rem
+
+        width: 65%
+        aspect-ratio: 3/2
+        background: #FFFFFF
+        padding: 1rem
+        border-radius: 0.93rem
+
+        .content 
+            padding: 2.5rem 5.25rem 1rem 0
 
     @media screen and ( max-width: 1024px )
-        grid-template-columns: 1fr
-        justify-content: center
-        align-items: center
-        
-        .progress_bar 
-            position: absolute
-            top: 0
-            left: 0
+        flex-direction: column
 
+        .mobile_progress_bar
+            display: block
             width: 100%
+            
+        .container
+            grid-template-columns: 1fr
+            justify-content: center
+            align-items: center
 
+            position: relative
+            top: -73px
 
-        .content
-            padding: 0
+            .desktop_progress_bar
+                display: none
 
+            .content
+                padding: 0
+        
 
         
