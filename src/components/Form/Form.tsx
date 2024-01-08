@@ -5,7 +5,7 @@ import FormPage from "../FormPage/FormPage";
 import FormProgress from "../FormProgress/FormProgress";
 import PersonalForm from "../PersonalForm/PersonalForm";
 import PlanSelection from "../PlanSelection/PlanSelection";
-import Summary from "../Summary/Summary";
+import Summary from "../ThanksPage/ThanksPage";
 import styles from "./Form.module.sass";
 
 export const Form = () => {

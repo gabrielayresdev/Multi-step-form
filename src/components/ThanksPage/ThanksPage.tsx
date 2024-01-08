@@ -1,9 +1,9 @@
 import styles from "./Summary.module.sass";
 import Checked from "/src/assets/icon-thank-you.svg?react";
 
-export const Summary = () => {
+export const ThanksPage = () => {
   return (
-    <div className={styles.summary}>
+    <div className={styles.thanks_page}>
       <div className={styles.icon}>
         <Checked />
       </div>
@@ -17,4 +17,4 @@ export const Summary = () => {
   );
 };
 
-export default Summary;
+export default ThanksPage;
