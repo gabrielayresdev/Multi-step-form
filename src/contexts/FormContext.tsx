@@ -51,7 +51,7 @@ const FormContextProvider = ({ children }: React.PropsWithChildren) => {
       message: "This number is not valid",
     },
   ]);
-  const pagination = usePagination(4);
+  const pagination = usePagination(5);
   const plans = [
     {
       name: "arcade",

@@ -5,6 +5,7 @@ import FormPage from "../FormPage/FormPage";
 import FormProgress from "../FormProgress/FormProgress";
 import PersonalForm from "../PersonalForm/PersonalForm";
 import PlanSelection from "../PlanSelection/PlanSelection";
+import Summary from "../Summary/Summary";
 import styles from "./Form.module.sass";
 
 export const Form = () => {
@@ -31,6 +32,7 @@ export const Form = () => {
       subtitle="Double-check everything looks OK before confirming."
       content={<ConclusionPage />}
     />,
+    <Summary />,
   ];
   return (
     <div className={styles.form}>
