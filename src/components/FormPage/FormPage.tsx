@@ -8,9 +8,17 @@ interface FormPageInterface {
   title: string;
   subtitle: string;
   content: JSX.Element;
+  conclusion?: boolean;
+  buttonEvent?: VoidFunction;
 }
 
-export const FormPage = ({ title, subtitle, content }: FormPageInterface) => {
+export const FormPage = ({
+  title,
+  subtitle,
+  content,
+  conclusion,
+  buttonEvent,
+}: FormPageInterface) => {
   const { name, email, number, pagination } = useFormContext();
 
   function validateBeforeProceed() {
@@ -35,7 +43,13 @@ export const FormPage = ({ title, subtitle, content }: FormPageInterface) => {
             />
           ) : null}
         </div>
-        <Button text="Next Step" onClick={validateBeforeProceed} />
+        <Button
+          text={conclusion ? "Confirm" : "Next Step"}
+          styles={conclusion ? styles.confirm_button : null}
+          onClick={() => {
+            buttonEvent ? buttonEvent() : validateBeforeProceed();
+          }}
+        />
       </div>
     </div>
   );

@@ -5,11 +5,11 @@ import FormPage from "../FormPage/FormPage";
 import FormProgress from "../FormProgress/FormProgress";
 import PersonalForm from "../PersonalForm/PersonalForm";
 import PlanSelection from "../PlanSelection/PlanSelection";
-import Summary from "../ThanksPage/ThanksPage";
+import ThanksPage from "../ThanksPage/ThanksPage";
 import styles from "./Form.module.sass";
 
 export const Form = () => {
-  const { pagination } = useFormContext();
+  const { pagination, completed, setCompleted } = useFormContext();
   const { page, goTo } = pagination;
   const content = [
     <FormPage
@@ -31,8 +31,9 @@ export const Form = () => {
       title="Finishing up"
       subtitle="Double-check everything looks OK before confirming."
       content={<ConclusionPage />}
+      conclusion={true}
+      buttonEvent={() => setCompleted(true)}
     />,
-    <Summary />,
   ];
   return (
     <div className={styles.form}>
@@ -43,7 +44,9 @@ export const Form = () => {
         <div className={styles.desktop_progress_bar}>
           <FormProgress page={page} goTo={goTo} />
         </div>
-        <div className={styles.content}>{content[page]}</div>
+        <div className={styles.content}>
+          {completed ? <ThanksPage /> : content[page]}
+        </div>
       </div>
     </div>
   );

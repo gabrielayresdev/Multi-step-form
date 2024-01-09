@@ -16,6 +16,8 @@ interface FormContextInterface {
   >;
   addOns: AddOnsInterface[];
   setAddOns: React.Dispatch<React.SetStateAction<AddOnsInterface[]>>;
+  completed: boolean;
+  setCompleted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface PlanInterface {
@@ -71,6 +73,7 @@ const FormContextProvider = ({ children }: React.PropsWithChildren) => {
     "monthly" | "yearly"
   >("monthly");
   const [addOns, setAddOns] = React.useState<AddOnsInterface[]>([]);
+  const [completed, setCompleted] = React.useState(false);
 
   return (
     <FormContext.Provider
@@ -86,6 +89,8 @@ const FormContextProvider = ({ children }: React.PropsWithChildren) => {
         setBillingFrequency,
         addOns,
         setAddOns,
+        completed,
+        setCompleted,
       }}
     >
       {children}

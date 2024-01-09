@@ -1,4 +1,4 @@
-import styles from "./Summary.module.sass";
+import styles from "./ThanksPage.module.sass";
 import Checked from "/src/assets/icon-thank-you.svg?react";
 
 export const ThanksPage = () => {
