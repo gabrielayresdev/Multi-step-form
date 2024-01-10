@@ -1,7 +1,6 @@
 import { useFormContext } from "../../contexts/FormContext";
 import AddOnsSelection from "../AddOnsSelection/AddOnsSelection";
 import ConclusionPage from "../ConclusionPage/ConclusionPage";
-import FormPage from "../FormPage/FormPage";
 import FormProgress from "../FormProgress/FormProgress";
 import PersonalForm from "../PersonalForm/PersonalForm";
 import PlanSelection from "../PlanSelection/PlanSelection";
@@ -9,31 +8,13 @@ import ThanksPage from "../ThanksPage/ThanksPage";
 import styles from "./Form.module.sass";
 
 export const Form = () => {
-  const { pagination, completed, setCompleted } = useFormContext();
+  const { pagination, completed } = useFormContext();
   const { page, goTo } = pagination;
   const content = [
-    <FormPage
-      title="Personal info"
-      subtitle="Please provide your name, email address, and phone number."
-      content={<PersonalForm />}
-    />,
-    <FormPage
-      title="Select your plan"
-      subtitle="You have the option of monthly or yearly billing."
-      content={<PlanSelection />}
-    />,
-    <FormPage
-      title="Pick add-ons"
-      subtitle="Add-ons help enhance your gaming experience."
-      content={<AddOnsSelection />}
-    />,
-    <FormPage
-      title="Finishing up"
-      subtitle="Double-check everything looks OK before confirming."
-      content={<ConclusionPage />}
-      conclusion={true}
-      buttonEvent={() => setCompleted(true)}
-    />,
+    <PersonalForm />,
+    <PlanSelection />,
+    <AddOnsSelection />,
+    <ConclusionPage />,
   ];
   return (
     <div className={styles.form}>

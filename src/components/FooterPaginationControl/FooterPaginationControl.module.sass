@@ -1,0 +1,20 @@
+.pagination_control 
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    .confirm_button
+        background: #483EFF
+
+        &:hover
+            background: #928CFF
+
+    @media screen and ( max-width: 1024px )
+        .pagination_control 
+            position: fixed
+            bottom: 0
+            left: 0
+            width: 100%
+            background: #fff
+
+            padding: 1rem

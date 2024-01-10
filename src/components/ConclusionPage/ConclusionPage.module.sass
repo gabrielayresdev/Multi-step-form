@@ -1,87 +1,98 @@
-.conclusion
+.form 
     display: flex
     flex-direction: column
-    gap: 1.5rem
-    .itens 
-        background: #F8F9FF
-        padding: 1rem 1.5rem
-        border-radius: .5rem
-
+    height: 100%
+    .conclusion
         display: flex
         flex-direction: column
+        flex: 1
+        gap: 1.5rem
+        .itens 
+            background: #F8F9FF
+            padding: 1rem 1.5rem
+            border-radius: .5rem
 
-        .plan 
+            display: flex
+            flex-direction: column
+
+            .plan 
+                display: flex
+                align-items: center
+                justify-content: space-between
+
+
+                .left_side
+                    .plan_name 
+                        color: #022959
+                        font-weight: 500
+                        margin-bottom: .5rem
+                        text-transform: capitalize
+                    .change_button 
+                        all: unset
+                        font-size: .875rem
+                        text-transform: capitalize
+                        color: #9699AA
+                        cursor: pointer
+
+                        &::after
+                            content: ""
+                            width: 100%
+                            height: 1px
+                            background: #9699AA
+                            display: block
+                            margin-top: 1px
+
+                            transition: all .3s
+                        
+                        &:hover
+                            color: #483EFF
+                            &::after
+                                background: #483EFF
+                .price 
+                    color: #022959
+                    font-weight: 700
+
+            .detail
+                width: 100%
+                height: 1px
+                background: #9699AA
+                display: block
+                opacity: .2
+
+                margin: 1.5rem  0 1rem 0
+
+            .addons 
+                display: flex
+                flex-direction: column
+                gap: 1rem
+
+                .addon
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    font-size: .875rem
+                    .title 
+                        color: #9699AA
+                    .price 
+                        color: #022959
+        .total
             display: flex
             align-items: center
             justify-content: space-between
 
+            padding: 0 1.5rem
 
-            .left_side
-                .plan_name 
-                    color: #022959
-                    font-weight: 500
-                    margin-bottom: .5rem
-                    text-transform: capitalize
-                .change_button 
-                    all: unset
-                    font-size: .875rem
-                    text-transform: capitalize
-                    color: #9699AA
-                    cursor: pointer
+            .key
+                font-size: .875rem
+                color: #9699AA
 
-                    &::after
-                        content: ""
-                        width: 100%
-                        height: 1px
-                        background: #9699AA
-                        display: block
-                        margin-top: 1px
-
-                        transition: all .3s
-                    
-                    &:hover
-                        color: #483EFF
-                        &::after
-                            background: #483EFF
-            .price 
-                color: #022959
+            .value
+                color: #483EFF
+                font-size: 1.25rem
                 font-weight: 700
 
-        .detail
-            width: 100%
-            height: 1px
-            background: #9699AA
-            display: block
-            opacity: .2
+    .confirm_button
+        background: #483EFF
 
-            margin: 1.5rem  0 1rem 0
-
-        .addons 
-            display: flex
-            flex-direction: column
-            gap: 1rem
-
-            .addon
-                display: flex
-                align-items: center
-                justify-content: space-between
-                font-size: .875rem
-                .title 
-                    color: #9699AA
-                .price 
-                    color: #022959
-    .total
-        display: flex
-        align-items: center
-        justify-content: space-between
-
-        padding: 0 1.5rem
-
-        .key
-            font-size: .875rem
-            color: #9699AA
-
-        .value
-            color: #483EFF
-            font-size: 1.25rem
-            font-weight: 700
+        &:hover
+            background: #928CFF

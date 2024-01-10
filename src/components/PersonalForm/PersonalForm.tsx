@@ -1,11 +1,17 @@
 import Input from "../Input/Input";
 import styles from "./PersonalForm.module.sass";
 import { useFormContext } from "../../contexts/FormContext";
+import FormHeader from "../FormHeader/FormHeader";
+import FooterPaginationControl from "../FooterPaginationControl/FooterPaginationControl";
 
 export const PersonalForm = () => {
   const { name, email, number } = useFormContext();
   return (
     <div className={styles.personal_form}>
+      <FormHeader
+        title="Personal info"
+        subtitle="Please provide your name, email address, and phone number."
+      />
       <div className={styles.input_container}>
         <Input
           value={name.value}
@@ -34,6 +40,7 @@ export const PersonalForm = () => {
           onBlur={() => number.validate()}
         />
       </div>
+      <FooterPaginationControl />
     </div>
   );
 };

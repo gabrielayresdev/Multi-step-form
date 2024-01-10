@@ -1,8 +1,11 @@
 import { useFormContext } from "../../contexts/FormContext";
+import FooterPaginationControl from "../FooterPaginationControl/FooterPaginationControl";
+import FormHeader from "../FormHeader/FormHeader";
 import styles from "./ConclusionPage.module.sass";
 
 export const ConclusionPage = () => {
-  const { plan, billingFrequency, addOns, pagination } = useFormContext();
+  const { plan, billingFrequency, addOns, pagination, setCompleted } =
+    useFormContext();
 
   const shortening = billingFrequency === "monthly" ? "mo" : "yr";
   const planPrice =
@@ -23,49 +26,62 @@ export const ConclusionPage = () => {
   const total = planPrice + addonsSum;
 
   return (
-    <div className={styles.conclusion}>
-      <div className={styles.itens}>
-        <div className={styles.plan}>
-          <div className={styles.left_side}>
-            <p className={styles.plan_name}>
-              {plan.name} ({billingFrequency})
+    <div className={styles.form}>
+      <FormHeader
+        title="Finishing up"
+        subtitle="Double-check everything looks OK before confirming."
+      />
+      <div className={styles.conclusion}>
+        <div className={styles.itens}>
+          <div className={styles.plan}>
+            <div className={styles.left_side}>
+              <p className={styles.plan_name}>
+                {plan.name} ({billingFrequency})
+              </p>
+              <button
+                onClick={() => pagination.goTo(1)}
+                className={styles.change_button}
+              >
+                Change
+              </button>
+            </div>
+            <p className={styles.price}>
+              ${planPrice}/{shortening}
             </p>
-            <button
-              onClick={() => pagination.goTo(1)}
-              className={styles.change_button}
-            >
-              Change
-            </button>
           </div>
-          <p className={styles.price}>
-            ${planPrice}/{shortening}
+          {addOns.length > 0 ? (
+            <>
+              <div className={styles.detail}></div>
+              <div className={styles.addons}>
+                {addonsPrice.map((addon, index) => (
+                  <div className={styles.addon} key={index}>
+                    <p className={styles.title}>{addon.title}</p>
+                    <p className={styles.price}>
+                      +${addon.price}/{shortening}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : null}
+        </div>
+
+        <div className={styles.total}>
+          <p className={styles.key}>
+            Total (per {billingFrequency === "monthly" ? "month" : "year"})
+          </p>
+          <p className={styles.value}>
+            ${total}/{shortening}
           </p>
         </div>
-        {addOns.length > 0 ? (
-          <>
-            <div className={styles.detail}></div>
-            <div className={styles.addons}>
-              {addonsPrice.map((addon, index) => (
-                <div className={styles.addon} key={index}>
-                  <p className={styles.title}>{addon.title}</p>
-                  <p className={styles.price}>
-                    +${addon.price}/{shortening}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </>
-        ) : null}
       </div>
-
-      <div className={styles.total}>
-        <p className={styles.key}>
-          Total (per {billingFrequency === "monthly" ? "month" : "year"})
-        </p>
-        <p className={styles.value}>
-          ${total}/{shortening}
-        </p>
-      </div>
+      <FooterPaginationControl
+        button2={{
+          text: "Confirm",
+          onClick: () => setCompleted(true),
+          style: styles.confirm_button,
+        }}
+      />
     </div>
   );
 };
