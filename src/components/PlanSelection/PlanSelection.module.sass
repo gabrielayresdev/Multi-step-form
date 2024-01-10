@@ -1,3 +1,5 @@
+@import 'src/styles/variables/color'
+
 .plan_selection 
     display: flex
     flex-direction: column
@@ -21,23 +23,23 @@
             justify-content: center
             gap: 1.5rem
             padding: .875rem 0
-            background: #F8F9FF
+            background: $c10
             border-radius: .5rem
 
             .billing 
                 font-size: .875rem
                 font-weight: 700
                 text-transform: capitalize
-                color: #9699AA
+                color: $c2
 
                 transition: all .3s
 
             &.monthly
                 .billing:first-of-type 
-                    color: #022959
+                    color: $c1
             &.yearly
                 .billing:nth-of-type(2)
-                    color: #022959
+                    color: $c1
 
     .page_controls 
         display: flex

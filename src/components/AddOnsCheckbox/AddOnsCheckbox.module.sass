@@ -1,3 +1,5 @@
+@import 'src/styles/variables/color'
+
 .checkbox 
     width: 100%
     display: grid
@@ -6,7 +8,7 @@
     gap: 1.5rem
     
     padding: 1rem 1.5rem
-    border: 1px solid #D6D9E6
+    border: 1px solid $c4
     border-radius: .5rem
     cursor: pointer
 
@@ -15,24 +17,24 @@
     .text_content 
         .title 
             font-weight: 500
-            color: #022959
+            color: $c1
             margin-bottom: .5rem
         .subtitle
-            color: #9699AA
+            color: $c2
             font-size: 0.9375rem
             line-height: 1.25rem
 
     .price 
         justify-self: flex-end
-        color: #483EFF
+        color: $c7
         font-size: 0.9375rem
     
     &.active 
-        border-color: #483EFF
-        background: #F8F9FF
+        border-color: $c7
+        background: $c10
 
     &:hover
-        border-color: #483EFF
+        border-color: $c7
 
     @media screen and ( max-width: 1024px )
         .text_content 

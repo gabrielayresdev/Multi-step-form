@@ -1,3 +1,5 @@
+@import 'src/styles/variables/color'
+
 .radio 
     /* min-width: 8.625rem */
     width: 100%
@@ -5,25 +7,25 @@
     flex-direction: column
     padding: 1.25rem 1rem
 
-    border: 1px solid #D6D9E6
+    border: 1px solid $c4
     border-radius: .5rem
 
-    background: #F8F9FF
+    background: $c10
     transition: all .2s
 
     &.checked 
-        border-color: #483EFF
+        border-color: $c7
 
     .icon 
         margin-bottom: 2.4375rem
 
     .title 
-        color: #022959
+        color: $c1
         text-transform: capitalize
         margin-bottom: .5rem
     
     .price 
-        color: #9699AA
+        color: $c2
         font-size: .875rem
     
     input

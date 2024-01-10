@@ -1,3 +1,5 @@
+@import 'src/styles/variables/color'
+
 .form 
     display: flex
     flex-direction: column
@@ -8,7 +10,7 @@
         flex: 1
         gap: 1.5rem
         .itens 
-            background: #F8F9FF
+            background: $c10
             padding: 1rem 1.5rem
             border-radius: .5rem
 
@@ -23,7 +25,7 @@
 
                 .left_side
                     .plan_name 
-                        color: #022959
+                        color: $c1
                         font-weight: 500
                         margin-bottom: .5rem
                         text-transform: capitalize
@@ -31,31 +33,31 @@
                         all: unset
                         font-size: .875rem
                         text-transform: capitalize
-                        color: #9699AA
+                        color: $c2
                         cursor: pointer
 
                         &::after
                             content: ""
                             width: 100%
                             height: 1px
-                            background: #9699AA
+                            background: $c2
                             display: block
                             margin-top: 1px
 
                             transition: all .3s
                         
                         &:hover
-                            color: #483EFF
+                            color: $c7
                             &::after
-                                background: #483EFF
+                                background: $c7
                 .price 
-                    color: #022959
+                    color: $c1
                     font-weight: 700
 
             .detail
                 width: 100%
                 height: 1px
-                background: #9699AA
+                background: $c2
                 display: block
                 opacity: .2
 
@@ -72,9 +74,9 @@
                     justify-content: space-between
                     font-size: .875rem
                     .title 
-                        color: #9699AA
+                        color: $c2
                     .price 
-                        color: #022959
+                        color: $c1
         .total
             display: flex
             align-items: center
@@ -84,15 +86,15 @@
 
             .key
                 font-size: .875rem
-                color: #9699AA
+                color: $c2
 
             .value
-                color: #483EFF
+                color: $c7
                 font-size: 1.25rem
                 font-weight: 700
 
     .confirm_button
-        background: #483EFF
+        background: $c7
 
         &:hover
             background: #928CFF
